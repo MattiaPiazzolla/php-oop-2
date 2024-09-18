@@ -16,25 +16,27 @@ class Category {
 
 // definisco le istanze delle categorie
 $dog = new Category('cani', 'fas fa-dog', '#dogs');
-var_dump($dog);
 $cat = new Category('gatti', 'fas fa-cat', '#cats');
-var_dump($cat);
 
 // definisco la classe dei prodotti 
 class Product {
-    public $name;
+    public $title;
     public $image;
     public $price;
     public $category;
     public $type;
-    public function __construct($name, $image, $price, Category $category, $type) {
-        $this->name = $name;
+    public function __construct($title, $image, $price, Category $category, $type) {
+        $this->title = $title;
         $this->image = $image;
         $this->price = $price;
         $this->category = $category;
         $this->type = $type; 
     }
 }
+// definisco le istanze dei prodotti
+$foodDog = new Product('Bocconcini di pollo', '...', '50', $dog, 'cibo'); 
+$foodCat = new Product('crocchettine di manzo', '...', '20', $cat, 'cibo');
+
 
 ?>
 
