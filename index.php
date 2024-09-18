@@ -47,25 +47,33 @@ $products = [
 </head>
 
 <body>
-    <div class="container my-4">
-        <div class="row">
-            <?php foreach($products as $product) { ?>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card mb-4 shadow-sm">
-                    <img src="<?php echo $product->image; ?>" class="card-img-top" alt="<?php echo $product->title; ?>">
-                    <div class="card-body">
-                        <h5 class="card-title text-capitalize"><?php echo $product->title; ?></h5>
-                        <p class="card-text">Prezzo: €<?php echo $product->price; ?></p>
-                        <p class="card-text text-uppercase fs-6 text-secondary"><i
-                                class="<?php echo $product->category->icon; ?>"></i>
-                            <?php echo $product->category->name; ?></p>
-                        <p class="card-text">Tipo: <?php echo $product->type; ?></p>
+    <header class="bg-primary text-center text-light p-3 position-fixed z-2 w-100 m-0">
+        <h4 class="m-0">
+            Pet Shop
+        </h4>
+    </header>
+    <main>
+        <div class="container pb-5" style="padding-top:100px;">
+            <div class="row">
+                <?php foreach($products as $product) { ?>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="<?php echo $product->image; ?>" class="card-img-top"
+                            alt="<?php echo $product->title; ?>">
+                        <div class="card-body">
+                            <h5 class="card-title text-capitalize"><?php echo $product->title; ?></h5>
+                            <p class="card-text">Prezzo: €<?php echo $product->price; ?></p>
+                            <p class="card-text text-uppercase fs-6 text-secondary"><i
+                                    class="<?php echo $product->category->icon; ?>"></i>
+                                <?php echo $product->category->name; ?></p>
+                            <p class="card-text">Tipo: <?php echo $product->type; ?></p>
+                        </div>
                     </div>
                 </div>
+                <?php }; ?>
             </div>
-            <?php }; ?>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>
