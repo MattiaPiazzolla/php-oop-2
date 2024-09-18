@@ -20,7 +20,21 @@ var_dump($dog);
 $cat = new Category('gatti', 'fas fa-cat', '#cats');
 var_dump($cat);
 
-
+// definisco la classe dei prodotti 
+class Product {
+    public $name;
+    public $image;
+    public $price;
+    public $category;
+    public $type;
+    public function __construct($name, $image, $price, Category $category, $type) {
+        $this->name = $name;
+        $this->image = $image;
+        $this->price = $price;
+        $this->category = $category;
+        $this->type = $type; 
+    }
+}
 
 ?>
 
