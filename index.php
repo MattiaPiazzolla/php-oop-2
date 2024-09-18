@@ -14,6 +14,11 @@ class Category {
     
 }
 
+// definisco le istanze delle categorie
+$dog = new Category('cani', 'fas fa-dog', '#dogs');
+var_dump($dog);
+$cat = new Category('gatti', 'fas fa-cat', '#cats');
+var_dump($cat);
 
 
 
