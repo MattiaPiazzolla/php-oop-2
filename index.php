@@ -9,22 +9,25 @@ $cat = new Category('gatti', 'fas fa-cat', '#cats');
 
 // definisco le istanze dei prodotti
 // prodotti cani
-$foodDog = new Product('bocconcini di pollo', '...', '50', $dog, 'cibo'); 
-$toyDog = new Product('palla in gomma', '...', '15', $dog, 'giocattoli');
-$bedDog = new Product('cuccia in legno', '...', '25', $dog, 'acessori');
-$leashDog = new Product('guinzaglio estensibile', '...', '25', $dog, 'acessori');
-$foodDogTwo = new Product('sacco di crocchette', '...', '35', $dog, 'cibo');
-$jacketDog = new Product('giacca impermeabile', '...', '40', $dog, 'abbigliamento');
+$foodDog = new Product('bocconcini di pollo', './img/Natures-Recipe-Chicken-Barley-Brown-Rice-Small-Bites-Whole-Grain-Dry-Dog-Food-4LB-1024x1024.png', '50', $dog, 'cibo'); 
+$toyDog = new Product('palla in gomma', './img/s-l1600_1024x1024.jpg.webp', '15', $dog, 'giocattoli');
+$bedDog = new Product('cuccia in legno', './img/23636_pla_hundehuette_spike_classic_s_fg_8243_8.jpg', '25', $dog, 'acessori');
+$leashDog = new Product('guinzaglio estensibile', './img/flexi-guinzaglio-cane-compact-blu_tx1178_6727-600x600.png', '25', $dog, 'acessori');
+$foodDogTwo = new Product('sacco di crocchette', './img/harri_adult_dog_turkey_15kg_OPT_400x400.png.webp', '35', $dog, 'cibo');
+$jacketDog = new Product('giacca impermeabile', './img/71sAMENolEL._AC_UF1000,1000_QL80_.jpg', '40', $dog, 'abbigliamento');
 
 // prodotti gatti
-$foodcat = new Product('bocconcini di manzo', '...', '50', $cat, 'cibo'); 
-$toycat = new Product('palla in gomma', '...', '15', $cat, 'giocattoli');
-$bedcat = new Product('cuccia di stoffa', '...', '25', $cat, 'acessori');
-$leashcat = new Product('collare', '...', '25', $cat, 'acessori');
-$foodCatTwo = new Product('sacco di crocchette', '...', '35', $cat, 'cibo');
-$toyCatTwo = new Product('laser', '...', '15', $cat, 'abbigliamento');
+$foodcat = new Product('bocconcini di manzo', './img/WhiskasOceanFishAdultDryCatFood_f5bbf1f9-31dd-433e-99bd-00582d979f60.jpg.webp', '20', $cat, 'cibo'); 
+$toycat = new Product('palla in gomma', './img/511KE8oxrsL.jpg', '15', $cat, 'giocattoli');
+$bedcat = new Product('cuccia di stoffa', './img/images.jpeg', '25', $cat, 'acessori');
+$collarcat = new Product('collare', './img/Collare_gatto_Bobby_Safe_Rosso.jpg.webp', '25', $cat, 'acessori');
+$foodCatTwo = new Product('sacco di crocchette', './img/WhiskasTunainJellyAdultWetCatFood-85gmpacks.jpg.webp', '35', $cat, 'cibo');
+$toyCatTwo = new Product('laser', './img/615FxK5sB1L.jpg', '15', $cat, 'giocattoli');
 
-
+// Metto tutti i prodotti in un array
+$products = [
+    $foodDog, $toyDog, $bedDog, $leashDog, $foodDogTwo, $jacketDog, $foodcat, $foodCatTwo, $toycat, $bedcat, $collarcat, $toyCatTwo
+];
 
 ?>
 
@@ -44,7 +47,25 @@ $toyCatTwo = new Product('laser', '...', '15', $cat, 'abbigliamento');
 </head>
 
 <body>
-
+    <div class="container my-4">
+        <div class="row">
+            <?php foreach($products as $product) { ?>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                    <img src="<?php echo $product->image; ?>" class="card-img-top" alt="<?php echo $product->title; ?>">
+                    <div class="card-body">
+                        <h5 class="card-title text-capitalize"><?php echo $product->title; ?></h5>
+                        <p class="card-text">Prezzo: €<?php echo $product->price; ?></p>
+                        <p class="card-text text-uppercase fs-6 text-secondary"><i
+                                class="<?php echo $product->category->icon; ?>"></i>
+                            <?php echo $product->category->name; ?></p>
+                        <p class="card-text">Tipo: <?php echo $product->type; ?></p>
+                    </div>
+                </div>
+            </div>
+            <?php }; ?>
+        </div>
+    </div>
 </body>
 
 </html>
