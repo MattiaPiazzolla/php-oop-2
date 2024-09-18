@@ -1,41 +1,29 @@
 <?php 
-// definisco la classe delle categorie 
-class Category {
-    public $name;
-    public $icon;
-    public $url;
-    // construct 
-    public function __construct($name, $icon, $url) {
-        $this->name = $name;
-        $this->icon = $icon;
-        $this->url = $url;
-    }
-
-    
-}
+require './classes/category.php';
+require'./classes/products.php';
 
 // definisco le istanze delle categorie
 $dog = new Category('cani', 'fas fa-dog', '#dogs');
 $cat = new Category('gatti', 'fas fa-cat', '#cats');
 
-// definisco la classe dei prodotti 
-class Product {
-    public $title;
-    public $image;
-    public $price;
-    public $category;
-    public $type;
-    public function __construct($title, $image, $price, Category $category, $type) {
-        $this->title = $title;
-        $this->image = $image;
-        $this->price = $price;
-        $this->category = $category;
-        $this->type = $type; 
-    }
-}
+
 // definisco le istanze dei prodotti
-$foodDog = new Product('Bocconcini di pollo', '...', '50', $dog, 'cibo'); 
-$foodCat = new Product('crocchettine di manzo', '...', '20', $cat, 'cibo');
+// prodotti cani
+$foodDog = new Product('bocconcini di pollo', '...', '50', $dog, 'cibo'); 
+$toyDog = new Product('palla in gomma', '...', '15', $dog, 'giocattoli');
+$bedDog = new Product('cuccia in legno', '...', '25', $dog, 'acessori');
+$leashDog = new Product('guinzaglio estensibile', '...', '25', $dog, 'acessori');
+$foodDogTwo = new Product('sacco di crocchette', '...', '35', $dog, 'cibo');
+$jacketDog = new Product('giacca impermeabile', '...', '40', $dog, 'abbigliamento');
+
+// prodotti gatti
+$foodcat = new Product('bocconcini di manzo', '...', '50', $cat, 'cibo'); 
+$toycat = new Product('palla in gomma', '...', '15', $cat, 'giocattoli');
+$bedcat = new Product('cuccia di stoffa', '...', '25', $cat, 'acessori');
+$leashcat = new Product('collare', '...', '25', $cat, 'acessori');
+$foodCatTwo = new Product('sacco di crocchette', '...', '35', $cat, 'cibo');
+$toyCatTwo = new Product('laser', '...', '15', $cat, 'abbigliamento');
+
 
 
 ?>
