@@ -1,7 +1,7 @@
 <?php 
     require_once __DIR__ ."/product.php";
 
-    class Bed extends Product{
+    class Food extends Product{
         protected $type; 
 
         function __construct($title, $image, $price,  Category $category, ){
