@@ -1,22 +1,19 @@
-<?php 
-    require_once __DIR__ ."/product.php";
+<?php
+require_once __DIR__ . "/Product.php";
 
-    class Food extends Product{
-        protected $type; 
+class Food extends Product {
+    private $type;
 
-        function __construct($title, $image, $price,  Category $category, ){
-            parent::__construct($title, $image, $price, $category);
-        }
-
-        public function setSize($type){
-            $this->type = $type;
-        }
-        public function getSize(){
-            return $this->type;
-        }
-        public function getClassName(){
-            return get_class();
-        }
+    public function setType($type) {
+        $this->type = $type;
     }
 
+    public function getType() {
+        return $this->type;
+    }
+
+    public function getProductDetails() {
+        return parent::getProductDetails() . "<br> Tipo: " . $this->type;
+    }
+}
 ?>

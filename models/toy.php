@@ -1,22 +1,19 @@
-<?php 
-    require_once __DIR__ ."/product.php";
+<?php
+require_once __DIR__ . "/Product.php";
 
-    class Toy extends Product{
-        protected $material; 
+class Toy extends Product {
+    private $material;
 
-        function __construct($title, $image, $price,  Category $category, ){
-            parent::__construct($title, $image, $price, $category);
-        }
-
-        public function setSize($material){
-            $this->material = $material;
-        }
-        public function getSize(){
-            return $this->material;
-        }
-        public function getClassName(){
-            return get_class();
-        }
+    public function setMaterial($material) {
+        $this->material = $material;
     }
 
+    public function getMaterial() {
+        return $this->material;
+    }
+
+    public function getProductDetails() {
+        return parent::getProductDetails() . "<br> Materiale: " . $this->material;
+    }
+}
 ?>
